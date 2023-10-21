@@ -1,6 +1,6 @@
 const readMe = data => {
     return `# ${data.title}
-    ![License](http://img.shields.io/badge/license-${data.license}-blue.svg)
+    ![Badge](http://img.shields.io/badge/license-${data.license}-green.svg)
     
 ## Description 
 ${data.description}
@@ -14,13 +14,13 @@ ${data.description}
 
 
 ## Installation
-${data.install}
+${data.installation}
 
 ## Usage
 ${data.usage}
 
 ## Contribution
-${contribution}
+${contribute}
 
 ## Test
 ${data.test}
