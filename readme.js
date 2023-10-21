@@ -20,7 +20,7 @@ ${data.installation}
 ${data.usage}
 
 ## Contribution
-${contribute}
+${dat.contribute}
 
 ## Test
 ${data.test}
