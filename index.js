@@ -23,7 +23,7 @@ const questions = [
     {
      type: 'input',
      message: 'Input instructions and examples of your project',
-     name:'installation',
+     name:'usage',
     },
     {
      type: 'input',
@@ -33,7 +33,7 @@ const questions = [
     {
      type: 'input',
      message: 'Input any tests written for the application of your Project and possible examples on how to run them.',
-     name:'contribute',
+     name:'test',
     },
     {
      type: 'list',
