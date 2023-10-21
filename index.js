@@ -56,18 +56,28 @@ const questions = [
 
 
 // TODO: Create a function to write README file
-function writeToFile(fileName, data) {
-    fs.writeFile(fileName, data, err => {
-        if (err) {
-          return console.log(err);
-        }
-        console.log("Success!")
-    });
-};
+function writeToFile = data => {
+    fs.writeToFile('README.md', data)
+    console.log('Success!!!')
+}
+
+//(readMe, data) {
+  //  fs.writeFile(readMe, data, err => {
+    //    if (err) {
+      //    return console.log(err);
+        //}
+        //console.log("Success!")
+   // });
+//};
 
 // TODO: Create a function to initialize app
 function init() {
-    return inquirer.prompt(questions);
+    .then(answers => {
+        return generatePage(answers);
+    })
+    .then(data => {
+        return writeToFile(data);
+    })
 };
 
 // Function call to initialize app
