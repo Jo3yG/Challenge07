@@ -1,9 +1,10 @@
-// TODO: Include packages needed for this application
+//Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
 const readMe = require('./readme.js')
+const util = require('util');
 
-// TODO: Create an array of questions for user input
+//Create an array of questions for user input
 const questions = [
     {
      type: 'input',
@@ -52,8 +53,8 @@ const questions = [
      name: 'license'
     }
 ]
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) 
+//Create a function to write README file
+function writeToFile(fileName, data) {
  fs.writeFile(fileName, data, err => {
     if (err) {
       return console.log(err);
@@ -61,45 +62,26 @@ function writeToFile(fileName, data)
   
     console.log("Success!!!")
 });
-//const writeFile = data => {
-  //  fs.writeFile('README.md', data)
-    //console.log('Success!!!')
+}
+const writeFileAsync = util.promisify(writeToFile);
 
+async function init() {
+    try {
+        // Prompt Inquirer questions
+        const data = await inquirer.prompt(questions);
+        console.log("Thank you for your inputs!");
+    
+        // Pass Inquirer userResponses and GitHub userInfo to generateMarkdown
+        console.log("Creating the ULTIMATE README")
+        const generate = readMe(data);
+        console.log(generate);
+    
+        // Write markdown to file
+        await writeFileAsync('READMETester.md', generate);
 
-//(readMe, data) {
-  //  fs.writeFile(readMe, data, err => {
-    //    if (err) {
-      //    return console.log(err);
-        //}
-        //console.log("Success!")
-   // });
-//};
-
-// TODO: Create a function to initialize app
-//const init = () => {
-   // return inquirer.prompt(questions);
-//}
-//function init ()
-  //  .then(answers => {
-    //    return readMe(answers);
-    //})
-    //.then(data => {
-     //   return writeToFile(data);
-    //})
-
-
+    } catch (error) {
+        console.log(error);
+    }
+};
 // Function call to initialize app
-//init()
-//.then(userInput => {
-  //  return readMe(userInput);
-//})
-//.then(readmeInfo => {
-  //  return writeFile(readmeInfo);
-//})
-questions()
-.then(answers =>{
-    return readMe(answers);
-})
-.then(data =>{
-    return writeFile(data);
-});
+init();
