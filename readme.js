@@ -8,7 +8,7 @@ ${data.description}
 ## Table of Contents 
 *[Installation](#installation)
 *[Usage](#usage)
-*[Contribution](#contribution)
+*[Contribution](#contribute)
 *[Test](#test)
 *[License](#license)
 
@@ -20,7 +20,7 @@ ${data.installation}
 ${data.usage}
 
 ## Contribution
-${dat.contribute}
+${data.contribute}
 
 ## Test
 ${data.test}

@@ -52,14 +52,19 @@ const questions = [
      name: 'license'
     }
 ]
-
-
-
 // TODO: Create a function to write README file
-const writeToFile = data => {
-    fs.writeToFile('README.md', data)
-    console.log('Success!!!')
-}
+function writeToFile(fileName, data) 
+ fs.writeFile(fileName, data, err => {
+    if (err) {
+      return console.log(err);
+    }
+  
+    console.log("Success!!!")
+});
+//const writeFile = data => {
+  //  fs.writeFile('README.md', data)
+    //console.log('Success!!!')
+
 
 //(readMe, data) {
   //  fs.writeFile(readMe, data, err => {
@@ -71,14 +76,30 @@ const writeToFile = data => {
 //};
 
 // TODO: Create a function to initialize app
-function init (){
-    .then(answers => {
-        return readMe(answers);
-    })
-    .then(data => {
-        return writeToFile(data);
-    })
-};
+//const init = () => {
+   // return inquirer.prompt(questions);
+//}
+//function init ()
+  //  .then(answers => {
+    //    return readMe(answers);
+    //})
+    //.then(data => {
+     //   return writeToFile(data);
+    //})
+
 
 // Function call to initialize app
-init();
+//init()
+//.then(userInput => {
+  //  return readMe(userInput);
+//})
+//.then(readmeInfo => {
+  //  return writeFile(readmeInfo);
+//})
+questions()
+.then(answers =>{
+    return readMe(answers);
+})
+.then(data =>{
+    return writeFile(data);
+});
