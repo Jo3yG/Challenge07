@@ -7,6 +7,16 @@ const readMe = require('readme.js')
 const questions = [
     {
      type: 'input',
+     message: 'What is your email address?',
+     name:'email',
+    },
+    {
+     type: 'input',
+     message: 'What is your GitHub Username?',
+     name:'github',
+    },
+    {
+     type: 'input',
      message: 'What is the title of your project?',
      name: 'title',
     },
@@ -41,17 +51,6 @@ const questions = [
      choices: ['GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'Boost Software License 1.0', 'The Unlicense'],
      name: 'license'
     }
-    {
-     type: 'input',
-     message: 'What is your email address?',
-     name:'email',
-    },
-    {
-     type: 'input',
-     message: 'What is your GitHub Profile?',
-     name:'github',
-    },
-
   ];
 
 
