@@ -4,7 +4,8 @@ const fs = require('fs');
 const readMe = require('./readme.js')
 
 // TODO: Create an array of questions for user input
-const questions = [
+const questions =() =>{
+    return inquirer.prompt([
     {
      type: 'input',
      message: 'What is your email address?',
@@ -51,7 +52,8 @@ const questions = [
      choices: ['GNU AGPLv3', 'GNU GPLv3', 'GNU LGPLv3', 'Mozilla Public License 2.0', 'Apache License 2.0', 'MIT License', 'Boost Software License 1.0', 'The Unlicense'],
      name: 'license'
     }
-  ];
+]);
+}
 
 
 // TODO: Create a function to write README file
