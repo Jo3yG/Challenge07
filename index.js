@@ -2,6 +2,13 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const readMe = require('./readme.js')
+//PER DOCUMENTATION:
+//Takes an "async" function (or function that returns a promise)
+//and returns a function following the error-first callback style
+//i.e taking an (err,value) => ... 
+//callback as the last argument. In the callback, the first argument
+//will be the rejection reason (or null if the promises resolved
+//), and the second argument will be the resolved value.
 const util = require('util');
 
 //Create an array of questions for user input
@@ -67,11 +74,11 @@ const writeFileAsync = util.promisify(writeToFile);
 
 async function init() {
     try {
-        // Prompt Inquirer questions
+        //Inquirer questions
         const data = await inquirer.prompt(questions);
         console.log("Thank you for your inputs!");
     
-        // Pass Inquirer userResponses and GitHub userInfo to generateMarkdown
+        // Pass Inquirer data to READMETester
         console.log("Creating the ULTIMATE README")
         const generate = readMe(data);
         console.log(generate);
